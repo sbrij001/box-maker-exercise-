@@ -1,15 +1,42 @@
 import React from 'react';
 
-const NewBoxForm = (props) => (
-  <form onSubmit={this.handleSubmit}>
-    <label>Width</label>
-    <input type="text" value={null} onChange={null}/>
-
-    <label>Height</label>
-    <input type="text" value={null} onChange={null}/>
-
-    <label>Background Color</label>
-    <input type="text" value={null} onChange={null}/>
-  </form>
-)
+class NewBoxForm extends React.Component {
+  state={
+    height:"",
+    width: "",
+    color: ""
+  }
+  
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  render(){
+    return(
+      <div>
+        <form>
+          <div>
+            <label htmlFor="width">Width</label>
+            <input
+              type="text"
+              name="width"
+              value={this.state.width}
+              id="width"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <label>Height</label>
+            <input type="text" value={null} onChange={null}/>
+          </div>
+          <div>
+            <label>Background Color</label>
+            <input type="text" value={null} onChange={null}/>
+          </div>
+        </form>
+      </div>
+    )
+  }
+}
 export default NewBoxForm;

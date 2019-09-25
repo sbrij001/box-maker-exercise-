@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from './box.component';
+import NewBoxForm from './new-box-form.component';
 
 class BoxList extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class BoxList extends React.Component {
     return(
       <div>
         <h1>Color Box Maker</h1>
+        <NewBoxForm/>
         {boxes}
       </div>
     )
