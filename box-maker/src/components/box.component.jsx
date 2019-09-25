@@ -9,7 +9,7 @@ class Box extends React.Component{
           width: `${this.props.width}em`,
           backgroundColor: this.props.color
         }}/>
-        <button>Submit</button>
+        <button>Remove</button>
       </div>
     )
   }

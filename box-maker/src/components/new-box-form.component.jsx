@@ -6,16 +6,26 @@ class NewBoxForm extends React.Component {
     width: "",
     color: ""
   }
-  
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.createBox(this.state)
+    this.setState({
+      height:"",
+      width: "",
+      color: ""
+    })
+  }
   render(){
     return(
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="width">Width</label>
             <input
@@ -27,13 +37,25 @@ class NewBoxForm extends React.Component {
             />
           </div>
           <div>
-            <label>Height</label>
-            <input type="text" value={null} onChange={null}/>
+            <label htmlFor="height">Height</label>
+            <input
+              type="text"
+              name="height"
+              value={this.state.height}
+              id="height"
+              onChange={this.handleChange}
+            />
           </div>
           <div>
-            <label>Background Color</label>
-            <input type="text" value={null} onChange={null}/>
+            <label htmlFor="color">Background Color</label>
+            <input
+              type="text"
+              name="color"
+              value={this.state.color}
+              onChange={this.handleChange}
+            />
           </div>
+          <button>Add New Box</button>
         </form>
       </div>
     )

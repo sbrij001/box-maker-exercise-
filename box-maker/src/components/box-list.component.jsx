@@ -4,7 +4,13 @@ import NewBoxForm from './new-box-form.component';
 
 class BoxList extends React.Component {
   state = {
-    boxes: [{width:10, height: 40, color: "red"}]
+    boxes: []
+  }
+
+  create = (newBox) => {
+    this.setState({
+      boxes: [...this.state.boxes, newBox]
+    })
   }
   render(){
     const boxes = this.state.boxes.map(box => (
@@ -17,7 +23,7 @@ class BoxList extends React.Component {
     return(
       <div>
         <h1>Color Box Maker</h1>
-        <NewBoxForm/>
+        <NewBoxForm createBox={this.create}/>
         {boxes}
       </div>
     )
