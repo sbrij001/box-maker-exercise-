@@ -12,12 +12,21 @@ class BoxList extends React.Component {
       boxes: [...this.state.boxes, newBox]
     })
   }
+
+  remove = (id) => {
+    this.setState({
+      boxes: this.state.boxes.filter(box => box.id !== id)
+    })
+  }
   render(){
     const boxes = this.state.boxes.map(box => (
       <Box
+        key={box.id}
+        id={box.id}
         width={box.width}
         height={box.height}
         color={box.color}
+        remove={this.remove}
       />
     ))
     return(

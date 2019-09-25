@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid/v4';
 
 class NewBoxForm extends React.Component {
   state={
@@ -15,7 +16,8 @@ class NewBoxForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createBox(this.state)
+    const newBox = {...this.state, id: uuid()}
+    this.props.createBox(newBox)
     this.setState({
       height:"",
       width: "",
