@@ -1,11 +1,12 @@
 import React from 'react';
-import Box from './components/box.component';
+import BoxList from './components/box-list.component';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Box/>
+      <BoxList/>
     </div>
   );
 }
